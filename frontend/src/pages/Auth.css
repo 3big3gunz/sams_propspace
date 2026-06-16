@@ -1,0 +1,104 @@
+.auth-page {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  padding: 24px; position: relative; overflow: hidden;
+  background: var(--gradient-hero);
+}
+.auth-bg { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.auth-blob {
+  position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.12;
+}
+.auth-blob-1 {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, #6366f1, #8b5cf6);
+  top: -200px; right: -100px;
+}
+.auth-blob-2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, #f59e0b, #ec4899);
+  bottom: -100px; left: -100px;
+}
+
+.auth-card {
+  background: var(--bg-glass); backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border); border-radius: var(--radius-xl);
+  padding: 40px; width: 100%; max-width: 460px;
+  position: relative; z-index: 1;
+  box-shadow: var(--shadow-lg), 0 0 80px rgba(99,102,241,0.08);
+  animation: fadeInUp 0.4s ease;
+}
+
+.auth-logo { text-align: center; margin-bottom: 28px; }
+.auth-logo-link {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 22px; font-weight: 800; color: var(--text-primary); text-decoration: none;
+}
+.auth-logo-link span { color: var(--primary); }
+.auth-logo .logo-icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: var(--gradient-primary);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; box-shadow: 0 4px 12px rgba(99,102,241,0.4);
+}
+
+.auth-header { text-align: center; margin-bottom: 28px; }
+.auth-title { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
+.auth-subtitle { font-size: 14px; color: var(--text-secondary); }
+
+.auth-form { display: flex; flex-direction: column; gap: 18px; }
+
+.input-icon-wrap { position: relative; }
+.input-icon {
+  position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  color: var(--text-muted); pointer-events: none; z-index: 1;
+}
+.input-with-icon { padding-left: 42px !important; }
+.input-with-icon-right { padding-right: 42px !important; }
+.input-icon-right {
+  position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  background: none; border: none; color: var(--text-muted); cursor: pointer;
+  padding: 4px; display: flex; align-items: center; transition: var(--transition);
+}
+.input-icon-right:hover { color: var(--text-primary); }
+
+.label-row { display: flex; justify-content: space-between; align-items: center; }
+.forgot-link { font-size: 12px; color: var(--primary); text-decoration: none; font-weight: 600; }
+.forgot-link:hover { text-decoration: underline; }
+
+.auth-submit { width: 100%; padding: 14px; font-size: 15px; margin-top: 4px; }
+
+.auth-divider {
+  display: flex; align-items: center; gap: 14px;
+  margin: 22px 0; color: var(--text-muted); font-size: 12px;
+}
+.auth-divider::before, .auth-divider::after {
+  content: ''; flex: 1; height: 1px; background: var(--border);
+}
+
+.demo-accounts { margin-bottom: 20px; }
+.demo-label { font-size: 12px; color: var(--text-muted); text-align: center; margin-bottom: 10px; font-weight: 600; }
+.demo-btns { display: flex; gap: 8px; justify-content: center; }
+.demo-btn {
+  padding: 8px 18px; border-radius: var(--radius-md);
+  background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.25);
+  color: var(--primary-light); font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: var(--transition);
+}
+.demo-btn:hover { background: rgba(99,102,241,0.2); border-color: rgba(99,102,241,0.4); }
+
+.auth-switch { text-align: center; font-size: 13px; color: var(--text-muted); }
+.auth-switch a { color: var(--primary); font-weight: 600; text-decoration: none; }
+.auth-switch a:hover { text-decoration: underline; }
+
+/* Role Picker */
+.role-picker { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.role-option {
+  padding: 14px; border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.04); border: 1.5px solid var(--border);
+  cursor: pointer; transition: var(--transition); text-align: left;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.role-option:hover { border-color: var(--border-hover); }
+.role-option.active { border-color: var(--primary); background: rgba(99,102,241,0.12); }
+.role-label { font-size: 13px; font-weight: 700; color: var(--text-primary); }
+.role-desc { font-size: 11px; color: var(--text-muted); }

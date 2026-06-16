@@ -1,0 +1,112 @@
+.listings-page { padding-top: var(--header-height); min-height: 100vh; }
+
+/* Header Bar */
+.listings-header {
+  background: var(--bg-surface); border-bottom: 1px solid var(--border);
+  padding: 24px 0; position: sticky; top: var(--header-height); z-index: 100;
+  backdrop-filter: blur(16px);
+}
+.listings-header-content {
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+.listings-title { font-size: 22px; font-weight: 800; }
+.listings-subtitle { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+.listings-toolbar { display: flex; align-items: center; gap: 10px; }
+.search-wrap-inline { min-width: 280px; }
+
+.filter-toggle-btn {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+  border-radius: var(--radius-md); padding: 10px 16px;
+  font-size: 14px; font-weight: 600; color: var(--text-secondary);
+  cursor: pointer; transition: var(--transition); white-space: nowrap;
+}
+.filter-toggle-btn:hover, .filter-toggle-btn.active {
+  border-color: var(--border-hover); color: var(--primary);
+  background: rgba(99,102,241,0.1);
+}
+
+.view-toggle {
+  display: flex; background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden;
+}
+.view-btn {
+  padding: 9px 12px; background: none; border: none;
+  color: var(--text-muted); cursor: pointer; transition: var(--transition);
+}
+.view-btn.active, .view-btn:hover { color: var(--primary); background: rgba(99,102,241,0.1); }
+
+/* Body layout */
+.listings-body {
+  display: grid; grid-template-columns: 280px 1fr; gap: 32px;
+  padding-top: 32px; padding-bottom: 60px; align-items: start;
+}
+.listings-sidebar {
+  position: sticky; top: calc(var(--header-height) + 80px);
+}
+.listings-sidebar:not(.open) { display: block; }
+
+.listings-main { min-width: 0; }
+
+/* Grid */
+.listings-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.listings-grid.list-view {
+  grid-template-columns: 1fr;
+}
+.listings-grid.list-view .property-card {
+  display: grid; grid-template-columns: 280px 1fr;
+}
+.listings-grid.list-view .card-image-wrap { height: 100%; min-height: 200px; }
+
+/* Skeleton */
+.skeleton-card {
+  background: var(--gradient-card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+
+/* Pagination */
+.pagination {
+  display: flex; align-items: center; justify-content: center;
+  gap: 8px; margin-top: 48px;
+}
+.page-btn {
+  min-width: 40px; height: 40px; border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+  color: var(--text-secondary); font-size: 14px; font-weight: 600;
+  cursor: pointer; transition: var(--transition);
+  display: flex; align-items: center; justify-content: center;
+}
+.page-btn:hover:not(:disabled) { border-color: var(--border-hover); color: var(--primary); }
+.page-btn.active {
+  background: var(--gradient-primary); border-color: transparent;
+  color: #fff; box-shadow: 0 4px 16px rgba(99,102,241,0.4);
+}
+.page-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+/* Mobile Filter Overlay */
+.filter-overlay-mobile {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+  display: flex; align-items: flex-start; justify-content: flex-end;
+}
+.filter-overlay-panel {
+  width: 340px; max-height: 100vh; overflow-y: auto;
+  background: var(--bg-elevated); animation: slideInLeft 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+  .listings-grid { grid-template-columns: repeat(2, 1fr); }
+  .listings-body { grid-template-columns: 260px 1fr; gap: 24px; }
+}
+@media (max-width: 768px) {
+  .listings-body { grid-template-columns: 1fr; }
+  .listings-sidebar { display: none; }
+  .listings-grid { grid-template-columns: 1fr; }
+  .listings-header-content { flex-direction: column; align-items: stretch; }
+  .search-wrap-inline { min-width: unset; }
+  .listings-toolbar { flex-wrap: wrap; }
+  .listings-grid.list-view .property-card { grid-template-columns: 1fr; }
+  .listings-grid.list-view .card-image-wrap { min-height: 200px; }
+}
